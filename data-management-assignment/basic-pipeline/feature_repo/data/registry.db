@@ -1,0 +1,25 @@
+
+C
+#
+customer"
+customerIDJtelco_churn
+žµº½àµñ½žµº½àµñ½
+B
+"
+__dummy"
+__dummy_idJtelco_churn
+žµº½ˆçø½žµº½ˆçø½1"$992ea0b2-4a09-4805-9494-15ce2aed136a*žµº½Àª”¾2Â
+¡
+customer_featurestelco_churncustomer"
+TotalAddonServices"
+AvgMonthlyUsage"
+TenureGroup:¤event_timestampZ-+../Telco-Customer-Churn-Transformed.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢+../Telco-Customer-Churn-Transformed.parquet@b
+
+customerID
+žµº½€¨€¾žµº½€¨€¾R¬
+©
+,feast.infra.online_stores.sqlite.SqliteTable"y
+X/home/ubuntu/data-management-assignment/basic-pipeline/feature_repo/data/online_store.dbtelco_churn_customer_featuresb²event_timestampZ-+../Telco-Customer-Churn-Transformed.parquetŠ1feast.infra.offline_stores.file_source.FileSource¢+../Telco-Customer-Churn-Transformed.parquetªtelco_churnŠ-
+
+telco_churn
+žµº½¨¢á´žµº½¨¢á´
