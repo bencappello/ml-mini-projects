@@ -1,0 +1,22 @@
+[2025-02-13T06:22:45.107+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: download_dataset.download_dataset manual__2025-02-13T06:22:44.283127+00:00 [queued]>
+[2025-02-13T06:22:45.116+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: download_dataset.download_dataset manual__2025-02-13T06:22:44.283127+00:00 [queued]>
+[2025-02-13T06:22:45.116+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2025-02-13T06:22:45.129+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): download_dataset> on 2025-02-13 06:22:44.283127+00:00
+[2025-02-13T06:22:45.136+0000] {standard_task_runner.py:57} INFO - Started process 883 to run task
+[2025-02-13T06:22:45.139+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'download_dataset', 'download_dataset', 'manual__2025-02-13T06:22:44.283127+00:00', '--job-id', '29', '--raw', '--subdir', 'DAGS_FOLDER/download_dataset_dag.py', '--cfg-path', '/tmp/tmpsxuok9oy']
+[2025-02-13T06:22:45.143+0000] {standard_task_runner.py:85} INFO - Job 29: Subtask download_dataset
+[2025-02-13T06:22:45.190+0000] {task_command.py:416} INFO - Running <TaskInstance: download_dataset.download_dataset manual__2025-02-13T06:22:44.283127+00:00 [running]> on host 081769f0e6bd
+[2025-02-13T06:22:45.503+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='download_dataset' AIRFLOW_CTX_TASK_ID='download_dataset' AIRFLOW_CTX_EXECUTION_DATE='2025-02-13T06:22:44.283127+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-13T06:22:44.283127+00:00'
+[2025-02-13T06:22:45.504+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-02-13T06:22:45.505+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'kaggle datasets download -d blastchar/telco-customer-churn -p /opt/***/basic-pipeline --unzip']
+[2025-02-13T06:22:45.520+0000] {subprocess.py:86} INFO - Output:
+[2025-02-13T06:22:46.643+0000] {subprocess.py:93} INFO - Warning: Your Kaggle API key is readable by other users on this system! To fix this, you can run 'chmod 600 /home/***/.kaggle/kaggle.json'
+[2025-02-13T06:22:46.644+0000] {subprocess.py:93} INFO - Dataset URL: https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+[2025-02-13T06:22:46.644+0000] {subprocess.py:93} INFO - License(s): copyright-authors
+[2025-02-13T06:22:46.644+0000] {subprocess.py:93} INFO - Downloading telco-customer-churn.zip to /opt/***/basic-pipeline
+[2025-02-13T06:22:46.661+0000] {subprocess.py:93} INFO -   0%|          | 0.00/172k [00:00<?, ?B/s]100%|██████████| 172k/172k [00:00<00:00, 21.4MB/s]
+[2025-02-13T06:22:46.661+0000] {subprocess.py:93} INFO - 
+[2025-02-13T06:22:46.697+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-02-13T06:22:46.726+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=download_dataset, task_id=download_dataset, execution_date=20250213T062244, start_date=20250213T062245, end_date=20250213T062246
+[2025-02-13T06:22:46.766+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-02-13T06:22:46.796+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

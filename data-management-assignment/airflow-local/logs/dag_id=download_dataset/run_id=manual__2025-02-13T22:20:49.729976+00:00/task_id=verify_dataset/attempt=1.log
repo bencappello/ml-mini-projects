@@ -1,0 +1,17 @@
+[2025-02-13T22:20:53.261+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: download_dataset.verify_dataset manual__2025-02-13T22:20:49.729976+00:00 [queued]>
+[2025-02-13T22:20:53.271+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: download_dataset.verify_dataset manual__2025-02-13T22:20:49.729976+00:00 [queued]>
+[2025-02-13T22:20:53.271+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2025-02-13T22:20:53.284+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): verify_dataset> on 2025-02-13 22:20:49.729976+00:00
+[2025-02-13T22:20:53.289+0000] {standard_task_runner.py:57} INFO - Started process 558 to run task
+[2025-02-13T22:20:53.293+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'download_dataset', 'verify_dataset', 'manual__2025-02-13T22:20:49.729976+00:00', '--job-id', '74', '--raw', '--subdir', 'DAGS_FOLDER/download_dataset_dag.py', '--cfg-path', '/tmp/tmp63c5jisy']
+[2025-02-13T22:20:53.295+0000] {standard_task_runner.py:85} INFO - Job 74: Subtask verify_dataset
+[2025-02-13T22:20:53.348+0000] {task_command.py:416} INFO - Running <TaskInstance: download_dataset.verify_dataset manual__2025-02-13T22:20:49.729976+00:00 [running]> on host f09fff4ef036
+[2025-02-13T22:20:53.430+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='download_dataset' AIRFLOW_CTX_TASK_ID='verify_dataset' AIRFLOW_CTX_EXECUTION_DATE='2025-02-13T22:20:49.729976+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-13T22:20:49.729976+00:00'
+[2025-02-13T22:20:53.431+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-02-13T22:20:53.432+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'ls -lh /opt/***/basic-pipeline/WA_Fn-UseC_-Telco-Customer-Churn.csv']
+[2025-02-13T22:20:53.443+0000] {subprocess.py:86} INFO - Output:
+[2025-02-13T22:20:53.448+0000] {subprocess.py:93} INFO - -rw-rw-r-- 1 default root 955K Feb 13 22:20 /opt/***/basic-pipeline/WA_Fn-UseC_-Telco-Customer-Churn.csv
+[2025-02-13T22:20:53.449+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-02-13T22:20:53.479+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=download_dataset, task_id=verify_dataset, execution_date=20250213T222049, start_date=20250213T222053, end_date=20250213T222053
+[2025-02-13T22:20:53.505+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-02-13T22:20:53.532+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

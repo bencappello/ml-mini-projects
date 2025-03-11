@@ -1,0 +1,50 @@
+[2025-02-13T22:21:06.020+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: download_dataset.convert_to_parquet manual__2025-02-13T22:20:49.729976+00:00 [queued]>
+[2025-02-13T22:21:06.029+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: download_dataset.convert_to_parquet manual__2025-02-13T22:20:49.729976+00:00 [queued]>
+[2025-02-13T22:21:06.029+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2025-02-13T22:21:06.042+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonVirtualenvOperator): convert_to_parquet> on 2025-02-13 22:20:49.729976+00:00
+[2025-02-13T22:21:06.047+0000] {standard_task_runner.py:57} INFO - Started process 580 to run task
+[2025-02-13T22:21:06.052+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'download_dataset', 'convert_to_parquet', 'manual__2025-02-13T22:20:49.729976+00:00', '--job-id', '76', '--raw', '--subdir', 'DAGS_FOLDER/download_dataset_dag.py', '--cfg-path', '/tmp/tmp6kr__3as']
+[2025-02-13T22:21:06.053+0000] {standard_task_runner.py:85} INFO - Job 76: Subtask convert_to_parquet
+[2025-02-13T22:21:06.101+0000] {task_command.py:416} INFO - Running <TaskInstance: download_dataset.convert_to_parquet manual__2025-02-13T22:20:49.729976+00:00 [running]> on host f09fff4ef036
+[2025-02-13T22:21:06.187+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='download_dataset' AIRFLOW_CTX_TASK_ID='convert_to_parquet' AIRFLOW_CTX_EXECUTION_DATE='2025-02-13T22:20:49.729976+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-13T22:20:49.729976+00:00'
+[2025-02-13T22:21:06.188+0000] {process_utils.py:182} INFO - Executing cmd: /usr/local/bin/python -m virtualenv /tmp/venvp2dralvo
+[2025-02-13T22:21:06.201+0000] {process_utils.py:186} INFO - Output:
+[2025-02-13T22:21:07.352+0000] {process_utils.py:190} INFO - created virtual environment CPython3.8.18.final.0-64 in 309ms
+[2025-02-13T22:21:07.352+0000] {process_utils.py:190} INFO -   creator CPython3Posix(dest=/tmp/venvp2dralvo, clear=False, no_vcs_ignore=False, global=False)
+[2025-02-13T22:21:07.353+0000] {process_utils.py:190} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/***/.local/share/virtualenv)
+[2025-02-13T22:21:07.353+0000] {process_utils.py:190} INFO -     added seed packages: pip==24.3.1, setuptools==75.3.0, wheel==0.45.1
+[2025-02-13T22:21:07.353+0000] {process_utils.py:190} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2025-02-13T22:21:07.396+0000] {process_utils.py:182} INFO - Executing cmd: /tmp/venvp2dralvo/bin/pip install -r /tmp/venvp2dralvo/requirements.txt
+[2025-02-13T22:21:07.406+0000] {process_utils.py:186} INFO - Output:
+[2025-02-13T22:21:08.930+0000] {process_utils.py:190} INFO - Collecting pandas (from -r /tmp/venvp2dralvo/requirements.txt (line 1))
+[2025-02-13T22:21:08.933+0000] {process_utils.py:190} INFO -   Using cached pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+[2025-02-13T22:21:09.093+0000] {process_utils.py:190} INFO - Collecting pyarrow (from -r /tmp/venvp2dralvo/requirements.txt (line 2))
+[2025-02-13T22:21:09.095+0000] {process_utils.py:190} INFO -   Using cached pyarrow-17.0.0-cp38-cp38-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+[2025-02-13T22:21:09.121+0000] {process_utils.py:190} INFO - Collecting python-dateutil>=2.8.2 (from pandas->-r /tmp/venvp2dralvo/requirements.txt (line 1))
+[2025-02-13T22:21:09.123+0000] {process_utils.py:190} INFO -   Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+[2025-02-13T22:21:09.189+0000] {process_utils.py:190} INFO - Collecting pytz>=2020.1 (from pandas->-r /tmp/venvp2dralvo/requirements.txt (line 1))
+[2025-02-13T22:21:09.191+0000] {process_utils.py:190} INFO -   Using cached pytz-2025.1-py2.py3-none-any.whl.metadata (22 kB)
+[2025-02-13T22:21:09.214+0000] {process_utils.py:190} INFO - Collecting tzdata>=2022.1 (from pandas->-r /tmp/venvp2dralvo/requirements.txt (line 1))
+[2025-02-13T22:21:09.216+0000] {process_utils.py:190} INFO -   Using cached tzdata-2025.1-py2.py3-none-any.whl.metadata (1.4 kB)
+[2025-02-13T22:21:09.496+0000] {process_utils.py:190} INFO - Collecting numpy>=1.20.3 (from pandas->-r /tmp/venvp2dralvo/requirements.txt (line 1))
+[2025-02-13T22:21:09.498+0000] {process_utils.py:190} INFO -   Using cached numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+[2025-02-13T22:21:09.528+0000] {process_utils.py:190} INFO - Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas->-r /tmp/venvp2dralvo/requirements.txt (line 1))
+[2025-02-13T22:21:09.530+0000] {process_utils.py:190} INFO -   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+[2025-02-13T22:21:09.535+0000] {process_utils.py:190} INFO - Using cached pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+[2025-02-13T22:21:09.547+0000] {process_utils.py:190} INFO - Using cached pyarrow-17.0.0-cp38-cp38-manylinux_2_28_x86_64.whl (40.0 MB)
+[2025-02-13T22:21:09.576+0000] {process_utils.py:190} INFO - Using cached numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+[2025-02-13T22:21:09.590+0000] {process_utils.py:190} INFO - Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+[2025-02-13T22:21:09.592+0000] {process_utils.py:190} INFO - Using cached pytz-2025.1-py2.py3-none-any.whl (507 kB)
+[2025-02-13T22:21:09.595+0000] {process_utils.py:190} INFO - Using cached tzdata-2025.1-py2.py3-none-any.whl (346 kB)
+[2025-02-13T22:21:09.597+0000] {process_utils.py:190} INFO - Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+[2025-02-13T22:21:10.011+0000] {process_utils.py:190} INFO - Installing collected packages: pytz, tzdata, six, numpy, python-dateutil, pyarrow, pandas
+[2025-02-13T22:21:17.931+0000] {process_utils.py:190} INFO - Successfully installed numpy-1.24.4 pandas-2.0.3 pyarrow-17.0.0 python-dateutil-2.9.0.post0 pytz-2025.1 six-1.17.0 tzdata-2025.1
+[2025-02-13T22:21:18.023+0000] {process_utils.py:190} INFO - 
+[2025-02-13T22:21:18.024+0000] {process_utils.py:190} INFO - [notice] A new release of pip is available: 24.3.1 -> 25.0.1
+[2025-02-13T22:21:18.024+0000] {process_utils.py:190} INFO - [notice] To update, run: python -m pip install --upgrade pip
+[2025-02-13T22:21:18.175+0000] {process_utils.py:182} INFO - Executing cmd: /tmp/venvp2dralvo/bin/python /tmp/venvp2dralvo/script.py /tmp/venvp2dralvo/script.in /tmp/venvp2dralvo/script.out /tmp/venvp2dralvo/string_args.txt /tmp/venvp2dralvo/termination.log
+[2025-02-13T22:21:18.188+0000] {process_utils.py:186} INFO - Output:
+[2025-02-13T22:21:19.348+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-02-13T22:21:19.361+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=download_dataset, task_id=convert_to_parquet, execution_date=20250213T222049, start_date=20250213T222106, end_date=20250213T222119
+[2025-02-13T22:21:19.383+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-02-13T22:21:19.404+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

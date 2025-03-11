@@ -1,0 +1,76 @@
+[2025-02-13T06:40:59.103+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: download_dataset.transform_dataset manual__2025-02-13T06:40:54.222559+00:00 [queued]>
+[2025-02-13T06:40:59.112+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: download_dataset.transform_dataset manual__2025-02-13T06:40:54.222559+00:00 [queued]>
+[2025-02-13T06:40:59.113+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2025-02-13T06:40:59.126+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonVirtualenvOperator): transform_dataset> on 2025-02-13 06:40:54.222559+00:00
+[2025-02-13T06:40:59.133+0000] {standard_task_runner.py:57} INFO - Started process 1237 to run task
+[2025-02-13T06:40:59.136+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'download_dataset', 'transform_dataset', 'manual__2025-02-13T06:40:54.222559+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/download_dataset_dag.py', '--cfg-path', '/tmp/tmpwmzf2ixj']
+[2025-02-13T06:40:59.140+0000] {standard_task_runner.py:85} INFO - Job 35: Subtask transform_dataset
+[2025-02-13T06:40:59.195+0000] {task_command.py:416} INFO - Running <TaskInstance: download_dataset.transform_dataset manual__2025-02-13T06:40:54.222559+00:00 [running]> on host 081769f0e6bd
+[2025-02-13T06:40:59.509+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='download_dataset' AIRFLOW_CTX_TASK_ID='transform_dataset' AIRFLOW_CTX_EXECUTION_DATE='2025-02-13T06:40:54.222559+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-13T06:40:54.222559+00:00'
+[2025-02-13T06:40:59.510+0000] {process_utils.py:182} INFO - Executing cmd: /usr/local/bin/python -m virtualenv /tmp/venveps6dlme
+[2025-02-13T06:40:59.523+0000] {process_utils.py:186} INFO - Output:
+[2025-02-13T06:41:00.618+0000] {process_utils.py:190} INFO - created virtual environment CPython3.8.18.final.0-64 in 253ms
+[2025-02-13T06:41:00.618+0000] {process_utils.py:190} INFO -   creator CPython3Posix(dest=/tmp/venveps6dlme, clear=False, no_vcs_ignore=False, global=False)
+[2025-02-13T06:41:00.618+0000] {process_utils.py:190} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/***/.local/share/virtualenv)
+[2025-02-13T06:41:00.619+0000] {process_utils.py:190} INFO -     added seed packages: pip==23.2.1, setuptools==68.2.0, wheel==0.41.2
+[2025-02-13T06:41:00.619+0000] {process_utils.py:190} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2025-02-13T06:41:00.661+0000] {process_utils.py:182} INFO - Executing cmd: /tmp/venveps6dlme/bin/pip install -r /tmp/venveps6dlme/requirements.txt
+[2025-02-13T06:41:00.674+0000] {process_utils.py:186} INFO - Output:
+[2025-02-13T06:41:02.632+0000] {process_utils.py:190} INFO - Collecting pandas (from -r /tmp/venveps6dlme/requirements.txt (line 1))
+[2025-02-13T06:41:02.633+0000] {process_utils.py:190} INFO -   Obtaining dependency information for pandas from https://files.pythonhosted.org/packages/f8/7f/5b047effafbdd34e52c9e2d7e44f729a0655efafb22198c45cf692cdc157/pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+[2025-02-13T06:41:02.635+0000] {process_utils.py:190} INFO -   Using cached pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+[2025-02-13T06:41:02.752+0000] {process_utils.py:190} INFO - Collecting python-dateutil>=2.8.2 (from pandas->-r /tmp/venveps6dlme/requirements.txt (line 1))
+[2025-02-13T06:41:02.753+0000] {process_utils.py:190} INFO -   Obtaining dependency information for python-dateutil>=2.8.2 from https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata
+[2025-02-13T06:41:02.755+0000] {process_utils.py:190} INFO -   Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+[2025-02-13T06:41:02.837+0000] {process_utils.py:190} INFO - Collecting pytz>=2020.1 (from pandas->-r /tmp/venveps6dlme/requirements.txt (line 1))
+[2025-02-13T06:41:02.838+0000] {process_utils.py:190} INFO -   Obtaining dependency information for pytz>=2020.1 from https://files.pythonhosted.org/packages/eb/38/ac33370d784287baa1c3d538978b5e2ea064d4c1b93ffbd12826c190dd10/pytz-2025.1-py2.py3-none-any.whl.metadata
+[2025-02-13T06:41:02.840+0000] {process_utils.py:190} INFO -   Using cached pytz-2025.1-py2.py3-none-any.whl.metadata (22 kB)
+[2025-02-13T06:41:02.871+0000] {process_utils.py:190} INFO - Collecting tzdata>=2022.1 (from pandas->-r /tmp/venveps6dlme/requirements.txt (line 1))
+[2025-02-13T06:41:02.871+0000] {process_utils.py:190} INFO -   Obtaining dependency information for tzdata>=2022.1 from https://files.pythonhosted.org/packages/0f/dd/84f10e23edd882c6f968c21c2434fe67bd4a528967067515feca9e611e5e/tzdata-2025.1-py2.py3-none-any.whl.metadata
+[2025-02-13T06:41:02.874+0000] {process_utils.py:190} INFO -   Using cached tzdata-2025.1-py2.py3-none-any.whl.metadata (1.4 kB)
+[2025-02-13T06:41:03.373+0000] {process_utils.py:190} INFO - Collecting numpy>=1.20.3 (from pandas->-r /tmp/venveps6dlme/requirements.txt (line 1))
+[2025-02-13T06:41:03.374+0000] {process_utils.py:190} INFO -   Obtaining dependency information for numpy>=1.20.3 from https://files.pythonhosted.org/packages/98/5d/5738903efe0ecb73e51eb44feafba32bdba2081263d40c5043568ff60faf/numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+[2025-02-13T06:41:03.377+0000] {process_utils.py:190} INFO -   Using cached numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+[2025-02-13T06:41:03.411+0000] {process_utils.py:190} INFO - Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas->-r /tmp/venveps6dlme/requirements.txt (line 1))
+[2025-02-13T06:41:03.411+0000] {process_utils.py:190} INFO -   Obtaining dependency information for six>=1.5 from https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl.metadata
+[2025-02-13T06:41:03.413+0000] {process_utils.py:190} INFO -   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+[2025-02-13T06:41:03.467+0000] {process_utils.py:190} INFO - Using cached pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+[2025-02-13T06:41:03.548+0000] {process_utils.py:190} INFO - Using cached numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+[2025-02-13T06:41:03.579+0000] {process_utils.py:190} INFO - Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+[2025-02-13T06:41:03.581+0000] {process_utils.py:190} INFO - Using cached pytz-2025.1-py2.py3-none-any.whl (507 kB)
+[2025-02-13T06:41:03.585+0000] {process_utils.py:190} INFO - Using cached tzdata-2025.1-py2.py3-none-any.whl (346 kB)
+[2025-02-13T06:41:03.587+0000] {process_utils.py:190} INFO - Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+[2025-02-13T06:41:03.916+0000] {process_utils.py:190} INFO - Installing collected packages: pytz, tzdata, six, numpy, python-dateutil, pandas
+[2025-02-13T06:41:10.673+0000] {process_utils.py:190} INFO - Successfully installed numpy-1.24.4 pandas-2.0.3 python-dateutil-2.9.0.post0 pytz-2025.1 six-1.17.0 tzdata-2025.1
+[2025-02-13T06:41:10.769+0000] {process_utils.py:190} INFO - 
+[2025-02-13T06:41:10.769+0000] {process_utils.py:190} INFO - [notice] A new release of pip is available: 23.2.1 -> 25.0.1
+[2025-02-13T06:41:10.769+0000] {process_utils.py:190} INFO - [notice] To update, run: python -m pip install --upgrade pip
+[2025-02-13T06:41:10.946+0000] {process_utils.py:182} INFO - Executing cmd: /tmp/venveps6dlme/bin/python /tmp/venveps6dlme/script.py /tmp/venveps6dlme/script.in /tmp/venveps6dlme/script.out /tmp/venveps6dlme/string_args.txt /tmp/venveps6dlme/termination.log
+[2025-02-13T06:41:10.958+0000] {process_utils.py:186} INFO - Output:
+[2025-02-13T06:41:11.619+0000] {process_utils.py:190} INFO - Traceback (most recent call last):
+[2025-02-13T06:41:11.619+0000] {process_utils.py:190} INFO -   File "/tmp/venveps6dlme/script.py", line 58, in <module>
+[2025-02-13T06:41:11.619+0000] {process_utils.py:190} INFO -     res = transform_dataset(*arg_dict["args"], **arg_dict["kwargs"])
+[2025-02-13T06:41:11.620+0000] {process_utils.py:190} INFO -   File "/tmp/venveps6dlme/script.py", line 39, in transform_dataset
+[2025-02-13T06:41:11.620+0000] {process_utils.py:190} INFO -     df["TotalAddonServices"] = df[["OnlineSecurity", "OnlineBackup", "DeviceProtection",
+[2025-02-13T06:41:11.620+0000] {process_utils.py:190} INFO -   File "/tmp/venveps6dlme/lib/python3.8/site-packages/pandas/core/frame.py", line 3940, in __setitem__
+[2025-02-13T06:41:11.620+0000] {process_utils.py:190} INFO -     self._set_item_frame_value(key, value)
+[2025-02-13T06:41:11.620+0000] {process_utils.py:190} INFO -   File "/tmp/venveps6dlme/lib/python3.8/site-packages/pandas/core/frame.py", line 4094, in _set_item_frame_value
+[2025-02-13T06:41:11.620+0000] {process_utils.py:190} INFO -     raise ValueError(
+[2025-02-13T06:41:11.620+0000] {process_utils.py:190} INFO - ValueError: Cannot set a DataFrame with multiple columns to the single column TotalAddonServices
+[2025-02-13T06:41:11.881+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 395, in execute
+    return super().execute(context=serializable_context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 609, in execute_callable
+    result = self._execute_python_callable_in_subprocess(python_path, tmp_path)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 463, in _execute_python_callable_in_subprocess
+    raise AirflowException(error_msg) from None
+airflow.exceptions.AirflowException: Process returned non-zero exit status 1.
+Cannot set a DataFrame with multiple columns to the single column TotalAddonServices
+[2025-02-13T06:41:11.885+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=download_dataset, task_id=transform_dataset, execution_date=20250213T064054, start_date=20250213T064059, end_date=20250213T064111
+[2025-02-13T06:41:11.902+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 35 for task transform_dataset (Process returned non-zero exit status 1.
+Cannot set a DataFrame with multiple columns to the single column TotalAddonServices; 1237)
+[2025-02-13T06:41:11.952+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-02-13T06:41:11.969+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

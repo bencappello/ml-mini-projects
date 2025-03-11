@@ -1,0 +1,56 @@
+[2025-02-13T22:47:23.225+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: download_dataset.commit_push_dvc manual__2025-02-13T22:41:41.160300+00:00 [queued]>
+[2025-02-13T22:47:23.234+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: download_dataset.commit_push_dvc manual__2025-02-13T22:41:41.160300+00:00 [queued]>
+[2025-02-13T22:47:23.234+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 2
+[2025-02-13T22:47:23.246+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): commit_push_dvc> on 2025-02-13 22:41:41.160300+00:00
+[2025-02-13T22:47:23.252+0000] {standard_task_runner.py:57} INFO - Started process 360 to run task
+[2025-02-13T22:47:23.255+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'download_dataset', 'commit_push_dvc', 'manual__2025-02-13T22:41:41.160300+00:00', '--job-id', '88', '--raw', '--subdir', 'DAGS_FOLDER/download_dataset_dag.py', '--cfg-path', '/tmp/tmpq1_arbpq']
+[2025-02-13T22:47:23.257+0000] {standard_task_runner.py:85} INFO - Job 88: Subtask commit_push_dvc
+[2025-02-13T22:47:23.307+0000] {task_command.py:416} INFO - Running <TaskInstance: download_dataset.commit_push_dvc manual__2025-02-13T22:41:41.160300+00:00 [running]> on host 4f1c81a800b8
+[2025-02-13T22:47:23.384+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='download_dataset' AIRFLOW_CTX_TASK_ID='commit_push_dvc' AIRFLOW_CTX_EXECUTION_DATE='2025-02-13T22:41:41.160300+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-13T22:41:41.160300+00:00'
+[2025-02-13T22:47:23.385+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-02-13T22:47:23.386+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', '\n    cd /opt/***/$DATA_REPO_NAME\n\n    # Ensure DVC is initialized\n    if [ ! -d .dvc ]; then\n        dvc init\n    fi\n\n    # Ensure DVC remote is set only if it doesn\'t exist\n    if ! dvc remote list | grep -q "origin"; then\n        dvc remote add -d origin $S3_URL\n    fi\n\n    # Configure Git User\n    git config --global user.email "bencappello@gmail.com"\n    git config --global user.name "Ben Cappello"\n\n    # Add files to DVC tracking\n    dvc add Telco-Customer-Churn-Transformed.csv\n    dvc add Telco-Customer-Churn-Transformed.parquet\n\n    # Ensure Git tracks DVC metadata files\n    git add .gitignore\n    if [ -f Telco-Customer-Churn-Transformed.csv.dvc ]; then git add Telco-Customer-Churn-Transformed.csv.dvc; fi\n    if [ -f Telco-Customer-Churn-Transformed.parquet.dvc ]; then git add Telco-Customer-Churn-Transformed.parquet.dvc; fi\n    if [ -f dvc.yaml ]; then git add dvc.yaml; fi\n    if [ -f dvc.lock ]; then git add dvc.lock; fi\n\n    # Commit changes to Git\n    git commit -m "Add transformed dataset and Parquet file" || echo "No changes to commit"\n\n    # Ensure correct Git branch and push\n    git branch -M main\n    git push origin main\n\n    # Push dataset files to DVC remote storage (S3)\n    dvc push\n    ']
+[2025-02-13T22:47:23.396+0000] {subprocess.py:86} INFO - Output:
+[2025-02-13T22:47:25.406+0000] {subprocess.py:93} INFO - 
+[2025-02-13T22:47:25.406+0000] {subprocess.py:93} INFO - To track the changes with git, run:
+[2025-02-13T22:47:25.406+0000] {subprocess.py:93} INFO - 
+[2025-02-13T22:47:25.406+0000] {subprocess.py:93} INFO - 	git add Telco-Customer-Churn-Transformed.csv.dvc
+[2025-02-13T22:47:25.406+0000] {subprocess.py:93} INFO - 
+[2025-02-13T22:47:25.406+0000] {subprocess.py:93} INFO - To enable auto staging, run:
+[2025-02-13T22:47:25.406+0000] {subprocess.py:93} INFO - 
+[2025-02-13T22:47:25.406+0000] {subprocess.py:93} INFO - 	dvc config core.autostage true
+[2025-02-13T22:47:26.667+0000] {subprocess.py:93} INFO - 
+[2025-02-13T22:47:26.667+0000] {subprocess.py:93} INFO - To track the changes with git, run:
+[2025-02-13T22:47:26.667+0000] {subprocess.py:93} INFO - 
+[2025-02-13T22:47:26.667+0000] {subprocess.py:93} INFO - 	git add Telco-Customer-Churn-Transformed.parquet.dvc
+[2025-02-13T22:47:26.667+0000] {subprocess.py:93} INFO - 
+[2025-02-13T22:47:26.667+0000] {subprocess.py:93} INFO - To enable auto staging, run:
+[2025-02-13T22:47:26.667+0000] {subprocess.py:93} INFO - 
+[2025-02-13T22:47:26.668+0000] {subprocess.py:93} INFO - 	dvc config core.autostage true
+[2025-02-13T22:47:26.892+0000] {subprocess.py:93} INFO - On branch main
+[2025-02-13T22:47:26.892+0000] {subprocess.py:93} INFO - Your branch is up to date with 'origin/main'.
+[2025-02-13T22:47:26.892+0000] {subprocess.py:93} INFO - 
+[2025-02-13T22:47:26.893+0000] {subprocess.py:93} INFO - Changes not staged for commit:
+[2025-02-13T22:47:26.893+0000] {subprocess.py:93} INFO -   (use "git add <file>..." to update what will be committed)
+[2025-02-13T22:47:26.893+0000] {subprocess.py:93} INFO -   (use "git restore <file>..." to discard changes in working directory)
+[2025-02-13T22:47:26.893+0000] {subprocess.py:93} INFO - 	modified:   .dvc/config
+[2025-02-13T22:47:26.893+0000] {subprocess.py:93} INFO - 
+[2025-02-13T22:47:26.893+0000] {subprocess.py:93} INFO - Untracked files:
+[2025-02-13T22:47:26.893+0000] {subprocess.py:93} INFO -   (use "git add <file>..." to include in what will be committed)
+[2025-02-13T22:47:26.893+0000] {subprocess.py:93} INFO - 	WA_Fn-UseC_-Telco-Customer-Churn.csv
+[2025-02-13T22:47:26.893+0000] {subprocess.py:93} INFO - 
+[2025-02-13T22:47:26.893+0000] {subprocess.py:93} INFO - no changes added to commit (use "git add" and/or "git commit -a")
+[2025-02-13T22:47:26.893+0000] {subprocess.py:93} INFO - No changes to commit
+[2025-02-13T22:47:27.306+0000] {subprocess.py:93} INFO - Everything up-to-date
+[2025-02-13T22:47:28.439+0000] {subprocess.py:93} INFO - ERROR: failed to transfer 'be3d06cfd99ee9da9b4f8cf6924f36dd' - 405, message='Method Not Allowed', url=URL('https://ben-data-management-assignment.s3.us-east-1.amazonaws.com/files/md5/be/3d06cfd99ee9da9b4f8cf6924f36dd')
+[2025-02-13T22:47:28.460+0000] {subprocess.py:93} INFO - ERROR: failed to transfer 'd56a0b0da59eeb97a339fb4e9c006230' - 405, message='Method Not Allowed', url=URL('https://ben-data-management-assignment.s3.us-east-1.amazonaws.com/files/md5/d5/6a0b0da59eeb97a339fb4e9c006230')
+[2025-02-13T22:47:28.462+0000] {subprocess.py:93} INFO - ERROR: failed to push data to the cloud - 2 files failed to upload
+[2025-02-13T22:47:28.632+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-02-13T22:47:28.646+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-02-13T22:47:28.650+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=download_dataset, task_id=commit_push_dvc, execution_date=20250213T224141, start_date=20250213T224723, end_date=20250213T224728
+[2025-02-13T22:47:28.664+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 88 for task commit_push_dvc (Bash command failed. The command returned a non-zero exit code 1.; 360)
+[2025-02-13T22:47:28.684+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-02-13T22:47:28.699+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

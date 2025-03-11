@@ -1,0 +1,53 @@
+[2025-02-13T06:46:12.965+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: download_dataset.transform_dataset manual__2025-02-13T06:40:54.222559+00:00 [queued]>
+[2025-02-13T06:46:12.975+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: download_dataset.transform_dataset manual__2025-02-13T06:40:54.222559+00:00 [queued]>
+[2025-02-13T06:46:12.975+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 2
+[2025-02-13T06:46:12.987+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonVirtualenvOperator): transform_dataset> on 2025-02-13 06:40:54.222559+00:00
+[2025-02-13T06:46:12.994+0000] {standard_task_runner.py:57} INFO - Started process 1336 to run task
+[2025-02-13T06:46:12.997+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'download_dataset', 'transform_dataset', 'manual__2025-02-13T06:40:54.222559+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/download_dataset_dag.py', '--cfg-path', '/tmp/tmptknm1fhj']
+[2025-02-13T06:46:13.001+0000] {standard_task_runner.py:85} INFO - Job 36: Subtask transform_dataset
+[2025-02-13T06:46:13.048+0000] {task_command.py:416} INFO - Running <TaskInstance: download_dataset.transform_dataset manual__2025-02-13T06:40:54.222559+00:00 [running]> on host 081769f0e6bd
+[2025-02-13T06:46:13.358+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='download_dataset' AIRFLOW_CTX_TASK_ID='transform_dataset' AIRFLOW_CTX_EXECUTION_DATE='2025-02-13T06:40:54.222559+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-13T06:40:54.222559+00:00'
+[2025-02-13T06:46:13.360+0000] {process_utils.py:182} INFO - Executing cmd: /usr/local/bin/python -m virtualenv /tmp/venvxu53rsbj
+[2025-02-13T06:46:13.372+0000] {process_utils.py:186} INFO - Output:
+[2025-02-13T06:46:14.508+0000] {process_utils.py:190} INFO - created virtual environment CPython3.8.18.final.0-64 in 269ms
+[2025-02-13T06:46:14.509+0000] {process_utils.py:190} INFO -   creator CPython3Posix(dest=/tmp/venvxu53rsbj, clear=False, no_vcs_ignore=False, global=False)
+[2025-02-13T06:46:14.509+0000] {process_utils.py:190} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/***/.local/share/virtualenv)
+[2025-02-13T06:46:14.509+0000] {process_utils.py:190} INFO -     added seed packages: pip==23.2.1, setuptools==68.2.0, wheel==0.41.2
+[2025-02-13T06:46:14.510+0000] {process_utils.py:190} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2025-02-13T06:46:14.556+0000] {process_utils.py:182} INFO - Executing cmd: /tmp/venvxu53rsbj/bin/pip install -r /tmp/venvxu53rsbj/requirements.txt
+[2025-02-13T06:46:14.568+0000] {process_utils.py:186} INFO - Output:
+[2025-02-13T06:46:16.501+0000] {process_utils.py:190} INFO - Collecting pandas (from -r /tmp/venvxu53rsbj/requirements.txt (line 1))
+[2025-02-13T06:46:16.502+0000] {process_utils.py:190} INFO -   Obtaining dependency information for pandas from https://files.pythonhosted.org/packages/f8/7f/5b047effafbdd34e52c9e2d7e44f729a0655efafb22198c45cf692cdc157/pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+[2025-02-13T06:46:16.504+0000] {process_utils.py:190} INFO -   Using cached pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+[2025-02-13T06:46:16.624+0000] {process_utils.py:190} INFO - Collecting python-dateutil>=2.8.2 (from pandas->-r /tmp/venvxu53rsbj/requirements.txt (line 1))
+[2025-02-13T06:46:16.625+0000] {process_utils.py:190} INFO -   Obtaining dependency information for python-dateutil>=2.8.2 from https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata
+[2025-02-13T06:46:16.627+0000] {process_utils.py:190} INFO -   Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+[2025-02-13T06:46:16.709+0000] {process_utils.py:190} INFO - Collecting pytz>=2020.1 (from pandas->-r /tmp/venvxu53rsbj/requirements.txt (line 1))
+[2025-02-13T06:46:16.709+0000] {process_utils.py:190} INFO -   Obtaining dependency information for pytz>=2020.1 from https://files.pythonhosted.org/packages/eb/38/ac33370d784287baa1c3d538978b5e2ea064d4c1b93ffbd12826c190dd10/pytz-2025.1-py2.py3-none-any.whl.metadata
+[2025-02-13T06:46:16.711+0000] {process_utils.py:190} INFO -   Using cached pytz-2025.1-py2.py3-none-any.whl.metadata (22 kB)
+[2025-02-13T06:46:16.743+0000] {process_utils.py:190} INFO - Collecting tzdata>=2022.1 (from pandas->-r /tmp/venvxu53rsbj/requirements.txt (line 1))
+[2025-02-13T06:46:16.744+0000] {process_utils.py:190} INFO -   Obtaining dependency information for tzdata>=2022.1 from https://files.pythonhosted.org/packages/0f/dd/84f10e23edd882c6f968c21c2434fe67bd4a528967067515feca9e611e5e/tzdata-2025.1-py2.py3-none-any.whl.metadata
+[2025-02-13T06:46:16.745+0000] {process_utils.py:190} INFO -   Using cached tzdata-2025.1-py2.py3-none-any.whl.metadata (1.4 kB)
+[2025-02-13T06:46:17.244+0000] {process_utils.py:190} INFO - Collecting numpy>=1.20.3 (from pandas->-r /tmp/venvxu53rsbj/requirements.txt (line 1))
+[2025-02-13T06:46:17.244+0000] {process_utils.py:190} INFO -   Obtaining dependency information for numpy>=1.20.3 from https://files.pythonhosted.org/packages/98/5d/5738903efe0ecb73e51eb44feafba32bdba2081263d40c5043568ff60faf/numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+[2025-02-13T06:46:17.247+0000] {process_utils.py:190} INFO -   Using cached numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+[2025-02-13T06:46:17.279+0000] {process_utils.py:190} INFO - Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas->-r /tmp/venvxu53rsbj/requirements.txt (line 1))
+[2025-02-13T06:46:17.279+0000] {process_utils.py:190} INFO -   Obtaining dependency information for six>=1.5 from https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl.metadata
+[2025-02-13T06:46:17.281+0000] {process_utils.py:190} INFO -   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+[2025-02-13T06:46:17.333+0000] {process_utils.py:190} INFO - Using cached pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+[2025-02-13T06:46:17.412+0000] {process_utils.py:190} INFO - Using cached numpy-1.24.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+[2025-02-13T06:46:17.441+0000] {process_utils.py:190} INFO - Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+[2025-02-13T06:46:17.444+0000] {process_utils.py:190} INFO - Using cached pytz-2025.1-py2.py3-none-any.whl (507 kB)
+[2025-02-13T06:46:17.446+0000] {process_utils.py:190} INFO - Using cached tzdata-2025.1-py2.py3-none-any.whl (346 kB)
+[2025-02-13T06:46:17.449+0000] {process_utils.py:190} INFO - Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+[2025-02-13T06:46:17.771+0000] {process_utils.py:190} INFO - Installing collected packages: pytz, tzdata, six, numpy, python-dateutil, pandas
+[2025-02-13T06:46:24.640+0000] {process_utils.py:190} INFO - Successfully installed numpy-1.24.4 pandas-2.0.3 python-dateutil-2.9.0.post0 pytz-2025.1 six-1.17.0 tzdata-2025.1
+[2025-02-13T06:46:24.743+0000] {process_utils.py:190} INFO - 
+[2025-02-13T06:46:24.743+0000] {process_utils.py:190} INFO - [notice] A new release of pip is available: 23.2.1 -> 25.0.1
+[2025-02-13T06:46:24.744+0000] {process_utils.py:190} INFO - [notice] To update, run: python -m pip install --upgrade pip
+[2025-02-13T06:46:24.910+0000] {process_utils.py:182} INFO - Executing cmd: /tmp/venvxu53rsbj/bin/python /tmp/venvxu53rsbj/script.py /tmp/venvxu53rsbj/script.in /tmp/venvxu53rsbj/script.out /tmp/venvxu53rsbj/string_args.txt /tmp/venvxu53rsbj/termination.log
+[2025-02-13T06:46:24.922+0000] {process_utils.py:186} INFO - Output:
+[2025-02-13T06:46:25.894+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-02-13T06:46:25.907+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=download_dataset, task_id=transform_dataset, execution_date=20250213T064054, start_date=20250213T064612, end_date=20250213T064625
+[2025-02-13T06:46:25.938+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-02-13T06:46:25.954+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

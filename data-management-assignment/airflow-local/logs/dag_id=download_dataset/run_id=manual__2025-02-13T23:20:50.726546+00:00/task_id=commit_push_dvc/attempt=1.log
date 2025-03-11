@@ -1,0 +1,48 @@
+[2025-02-13T23:21:23.343+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: download_dataset.commit_push_dvc manual__2025-02-13T23:20:50.726546+00:00 [queued]>
+[2025-02-13T23:21:23.353+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: download_dataset.commit_push_dvc manual__2025-02-13T23:20:50.726546+00:00 [queued]>
+[2025-02-13T23:21:23.354+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2025-02-13T23:21:23.365+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): commit_push_dvc> on 2025-02-13 23:20:50.726546+00:00
+[2025-02-13T23:21:23.371+0000] {standard_task_runner.py:57} INFO - Started process 1165 to run task
+[2025-02-13T23:21:23.375+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'download_dataset', 'commit_push_dvc', 'manual__2025-02-13T23:20:50.726546+00:00', '--job-id', '99', '--raw', '--subdir', 'DAGS_FOLDER/download_dataset_dag.py', '--cfg-path', '/tmp/tmpqr2y_gni']
+[2025-02-13T23:21:23.376+0000] {standard_task_runner.py:85} INFO - Job 99: Subtask commit_push_dvc
+[2025-02-13T23:21:23.426+0000] {task_command.py:416} INFO - Running <TaskInstance: download_dataset.commit_push_dvc manual__2025-02-13T23:20:50.726546+00:00 [running]> on host 4f1c81a800b8
+[2025-02-13T23:21:23.511+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='download_dataset' AIRFLOW_CTX_TASK_ID='commit_push_dvc' AIRFLOW_CTX_EXECUTION_DATE='2025-02-13T23:20:50.726546+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-13T23:20:50.726546+00:00'
+[2025-02-13T23:21:23.512+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-02-13T23:21:23.512+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', '\n    cd /opt/***/$DATA_REPO_NAME\n\n    # Ensure DVC is initialized\n    if [ ! -d .dvc ]; then\n        dvc init\n    fi\n\n    # Ensure DVC remote is set only if it doesn\'t exist\n    if ! dvc remote list | grep -q "origin"; then\n        dvc remote add -d origin $S3_URL\n    fi\n\n    # Configure Git User\n    git config --global user.email "bencappello@gmail.com"\n    git config --global user.name "Ben Cappello"\n\n    # Add files to DVC tracking\n    dvc add Telco-Customer-Churn-Transformed.csv\n    dvc add Telco-Customer-Churn-Transformed.parquet\n\n    # Ensure Git tracks DVC metadata files\n    git add .gitignore\n    if [ -f Telco-Customer-Churn-Transformed.csv.dvc ]; then git add Telco-Customer-Churn-Transformed.csv.dvc; fi\n    if [ -f Telco-Customer-Churn-Transformed.parquet.dvc ]; then git add Telco-Customer-Churn-Transformed.parquet.dvc; fi\n    if [ -f dvc.yaml ]; then git add dvc.yaml; fi\n    if [ -f dvc.lock ]; then git add dvc.lock; fi\n\n    # Commit changes to Git\n    git commit -m "Add transformed dataset and Parquet file" || echo "No changes to commit"\n\n    # Ensure correct Git branch and push\n    git branch -M main\n    git push origin main\n\n    # Push dataset files to DVC remote storage (S3)\n    dvc push\n    ']
+[2025-02-13T23:21:23.523+0000] {subprocess.py:86} INFO - Output:
+[2025-02-13T23:21:25.583+0000] {subprocess.py:93} INFO - 
+[2025-02-13T23:21:25.584+0000] {subprocess.py:93} INFO - To track the changes with git, run:
+[2025-02-13T23:21:25.584+0000] {subprocess.py:93} INFO - 
+[2025-02-13T23:21:25.584+0000] {subprocess.py:93} INFO - 	git add Telco-Customer-Churn-Transformed.csv.dvc
+[2025-02-13T23:21:25.584+0000] {subprocess.py:93} INFO - 
+[2025-02-13T23:21:25.584+0000] {subprocess.py:93} INFO - To enable auto staging, run:
+[2025-02-13T23:21:25.584+0000] {subprocess.py:93} INFO - 
+[2025-02-13T23:21:25.584+0000] {subprocess.py:93} INFO - 	dvc config core.autostage true
+[2025-02-13T23:21:26.872+0000] {subprocess.py:93} INFO - 
+[2025-02-13T23:21:26.872+0000] {subprocess.py:93} INFO - To track the changes with git, run:
+[2025-02-13T23:21:26.872+0000] {subprocess.py:93} INFO - 
+[2025-02-13T23:21:26.872+0000] {subprocess.py:93} INFO - 	git add Telco-Customer-Churn-Transformed.parquet.dvc
+[2025-02-13T23:21:26.873+0000] {subprocess.py:93} INFO - 
+[2025-02-13T23:21:26.873+0000] {subprocess.py:93} INFO - To enable auto staging, run:
+[2025-02-13T23:21:26.873+0000] {subprocess.py:93} INFO - 
+[2025-02-13T23:21:26.873+0000] {subprocess.py:93} INFO - 	dvc config core.autostage true
+[2025-02-13T23:21:27.079+0000] {subprocess.py:93} INFO - On branch main
+[2025-02-13T23:21:27.079+0000] {subprocess.py:93} INFO - Your branch is up to date with 'origin/main'.
+[2025-02-13T23:21:27.079+0000] {subprocess.py:93} INFO - 
+[2025-02-13T23:21:27.079+0000] {subprocess.py:93} INFO - Changes not staged for commit:
+[2025-02-13T23:21:27.079+0000] {subprocess.py:93} INFO -   (use "git add <file>..." to update what will be committed)
+[2025-02-13T23:21:27.079+0000] {subprocess.py:93} INFO -   (use "git restore <file>..." to discard changes in working directory)
+[2025-02-13T23:21:27.080+0000] {subprocess.py:93} INFO - 	modified:   .dvc/config
+[2025-02-13T23:21:27.080+0000] {subprocess.py:93} INFO - 
+[2025-02-13T23:21:27.080+0000] {subprocess.py:93} INFO - Untracked files:
+[2025-02-13T23:21:27.080+0000] {subprocess.py:93} INFO -   (use "git add <file>..." to include in what will be committed)
+[2025-02-13T23:21:27.080+0000] {subprocess.py:93} INFO - 	WA_Fn-UseC_-Telco-Customer-Churn.csv
+[2025-02-13T23:21:27.080+0000] {subprocess.py:93} INFO - 
+[2025-02-13T23:21:27.080+0000] {subprocess.py:93} INFO - no changes added to commit (use "git add" and/or "git commit -a")
+[2025-02-13T23:21:27.080+0000] {subprocess.py:93} INFO - No changes to commit
+[2025-02-13T23:21:27.300+0000] {subprocess.py:93} INFO - Everything up-to-date
+[2025-02-13T23:21:28.871+0000] {subprocess.py:93} INFO - Everything is up to date.
+[2025-02-13T23:21:29.155+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-02-13T23:21:29.181+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=download_dataset, task_id=commit_push_dvc, execution_date=20250213T232050, start_date=20250213T232123, end_date=20250213T232129
+[2025-02-13T23:21:29.207+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-02-13T23:21:29.223+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

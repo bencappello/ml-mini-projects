@@ -1,0 +1,66 @@
+[2025-02-13T19:39:26.645+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: download_dataset.commit_push_dvc manual__2025-02-13T19:38:54.539339+00:00 [queued]>
+[2025-02-13T19:39:26.657+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: download_dataset.commit_push_dvc manual__2025-02-13T19:38:54.539339+00:00 [queued]>
+[2025-02-13T19:39:26.657+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 2
+[2025-02-13T19:39:26.670+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): commit_push_dvc> on 2025-02-13 19:38:54.539339+00:00
+[2025-02-13T19:39:26.677+0000] {standard_task_runner.py:57} INFO - Started process 1797 to run task
+[2025-02-13T19:39:26.681+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'download_dataset', 'commit_push_dvc', 'manual__2025-02-13T19:38:54.539339+00:00', '--job-id', '63', '--raw', '--subdir', 'DAGS_FOLDER/download_dataset_dag.py', '--cfg-path', '/tmp/tmp_3_b8tbp']
+[2025-02-13T19:39:26.682+0000] {standard_task_runner.py:85} INFO - Job 63: Subtask commit_push_dvc
+[2025-02-13T19:39:26.730+0000] {task_command.py:416} INFO - Running <TaskInstance: download_dataset.commit_push_dvc manual__2025-02-13T19:38:54.539339+00:00 [running]> on host f09fff4ef036
+[2025-02-13T19:39:26.787+0000] {abstractoperator.py:709} ERROR - Exception rendering Jinja template for task 'commit_push_dvc', field 'bash_command'. Template: '\n    cd /opt/***/{{ var.value.DATA_REPO_NAME }}\n\n    # Ensure DVC is initialized\n    if [ ! -d .dvc ]; then\n        dvc init\n    fi\n\n    # Ensure DVC remote is set only if it doesn\'t exist\n    if ! dvc remote list | grep -q "origin"; then\n        export S3_URL="{{ var.value.S3_URL }}"\n        dvc remote add origin "$S3_URL"\n    fi\n\n    # Configure Git User\n    git config --global user.email "bencappello@gmail.com"\n    git config --global user.name "Ben Cappello"\n\n    # Add files to DVC tracking\n    dvc add Telco-Customer-Churn-Transformed.csv\n    dvc add Telco-Customer-Churn-Transformed.parquet\n\n    # Ensure Git tracks DVC metadata files\n    git add .gitignore\n    if [ -f Telco-Customer-Churn-Transformed.csv.dvc ]; then git add Telco-Customer-Churn-Transformed.csv.dvc; fi\n    if [ -f Telco-Customer-Churn-Transformed.parquet.dvc ]; then git add Telco-Customer-Churn-Transformed.parquet.dvc; fi\n    if [ -f dvc.yaml ]; then git add dvc.yaml; fi\n    if [ -f dvc.lock ]; then git add dvc.lock; fi\n\n    # Commit changes to Git\n    git commit -m "Add transformed dataset and Parquet file" || echo "No changes to commit"\n\n    # Ensure correct Git branch and push\n    git branch -M main\n    git push origin main\n\n    # Push dataset files to DVC remote storage (S3)\n    dvc push\n    '
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/abstractoperator.py", line 701, in _do_render_template_fields
+    rendered_content = self.render_template(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/template/templater.py", line 155, in render_template
+    return self._render(template, context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/abstractoperator.py", line 655, in _render
+    return super()._render(template, context, dag=dag)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/template/templater.py", line 112, in _render
+    return render_template_to_string(template, context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/helpers.py", line 289, in render_template_to_string
+    return render_template(template, cast(MutableMapping[str, Any], context), native=False)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/helpers.py", line 284, in render_template
+    return "".join(nodes)
+  File "<template>", line 13, in root
+  File "/home/airflow/.local/lib/python3.8/site-packages/jinja2/sandbox.py", line 326, in getattr
+    value = getattr(obj, attribute)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/context.py", line 104, in __getattr__
+    self.var = Variable.get(key, deserialize_json=self._deserialize_json)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/variable.py", line 140, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable DATA_REPO_NAME does not exist'
+[2025-02-13T19:39:26.788+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1518, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode, session=session)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1647, in _execute_task_with_callbacks
+    task_orig = self.render_templates(context=context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 2285, in render_templates
+    original_task.render_template_fields(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/baseoperator.py", line 1243, in render_template_fields
+    self._do_render_template_fields(self, self.template_fields, context, jinja_env, set())
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/session.py", line 77, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/abstractoperator.py", line 701, in _do_render_template_fields
+    rendered_content = self.render_template(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/template/templater.py", line 155, in render_template
+    return self._render(template, context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/abstractoperator.py", line 655, in _render
+    return super()._render(template, context, dag=dag)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/template/templater.py", line 112, in _render
+    return render_template_to_string(template, context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/helpers.py", line 289, in render_template_to_string
+    return render_template(template, cast(MutableMapping[str, Any], context), native=False)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/helpers.py", line 284, in render_template
+    return "".join(nodes)
+  File "<template>", line 13, in root
+  File "/home/airflow/.local/lib/python3.8/site-packages/jinja2/sandbox.py", line 326, in getattr
+    value = getattr(obj, attribute)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/utils/context.py", line 104, in __getattr__
+    self.var = Variable.get(key, deserialize_json=self._deserialize_json)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/variable.py", line 140, in get
+    raise KeyError(f"Variable {key} does not exist")
+KeyError: 'Variable DATA_REPO_NAME does not exist'
+[2025-02-13T19:39:26.797+0000] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=download_dataset, task_id=commit_push_dvc, execution_date=20250213T193854, start_date=20250213T193926, end_date=20250213T193926
+[2025-02-13T19:39:26.809+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 63 for task commit_push_dvc ('Variable DATA_REPO_NAME does not exist'; 1797)
+[2025-02-13T19:39:26.853+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-02-13T19:39:26.870+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
