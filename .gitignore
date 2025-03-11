@@ -1,1 +1,4 @@
 data-management-assignment/airflow-local/.env
+data-management-assignment/basic-pipeline/Telco-Customer-Churn-Transformed.csv
+data-management-assignment/basic-pipeline/Telco-Customer-Churn-Transformed.parquet
+data-management-assignment/basic-pipeline/WA_Fn-UseC_-Telco-Customer-Churn.csv
