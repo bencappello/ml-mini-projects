@@ -1,0 +1,14 @@
+# Python version required to run the project.
+python: "3.11.5"
+# Dependencies required to build packages. This field is optional.
+build_dependencies:
+  - pip
+  - setuptools
+  - wheel==0.37.1
+# Dependencies required to run the project.
+dependencies:
+  - mlflow==2.7.1
+  - torch==2.0.1
+  - torchvision==0.15.2
+  - transformers==4.33.1
+  - ray[tune]==2.7.0
