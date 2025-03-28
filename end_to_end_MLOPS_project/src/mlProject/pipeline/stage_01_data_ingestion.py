@@ -26,6 +26,6 @@ if __name__ == '__main__':
         obj.main()
         logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
-        logger.exception(e)
+        logger.exception(f"❌ Data ingestion stage failed due to: {e}")
         raise e
 
